@@ -4,6 +4,7 @@ const http = require('http')
 const socketio = require('socket.io')
 const formatMessage = require('./utils/messages')
 const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users')
+const port = process.env.PORT || 3000;
 
 //Instantiating
 const app = express()
@@ -72,4 +73,4 @@ io.on('connection', socket => {
 
 })
 
-server.listen(3000, ()=>console.log(`server is running on ${PORT}`))
+server.listen(port,'0.0.0.0', ()=>console.log(`server is running on ${PORT}`))
